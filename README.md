@@ -30,4 +30,4 @@ window.onload = function () {
 
 Now you can paste it into your console, for a one-time use
 ![enter image description here](console.png)
-Console panel
+![enter image description here](rack.png)
