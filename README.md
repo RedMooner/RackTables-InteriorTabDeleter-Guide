@@ -1,4 +1,3 @@
-# RackTables-InteriorTabDeleter
   
 
 ## deleting a tab "Interior" from rack
@@ -10,9 +9,10 @@ Copy this code:
 
    
 ```javascript
-     window.onload = function() {
-        try{
-           var container = $('.rack').children('tbody');
+window.onload = function() {
+     try
+     {
+	    var container = $('.rack').children('tbody');
         var first_value = $(container).children('tr:nth(0)');
         $(first_value).children('th:nth(2)').remove();
         var last_value = $(container).children('tr:last');
@@ -21,7 +21,12 @@ Copy this code:
         $(container).children().each(function(){
              $(this).children('td:nth(1)').remove();
         });
-        }catch(err){
-        console.log(err);
         }
+	catch(err)
+    {
+        console.log(err);
+    }
+```
 
+
+Now you can paste it into your console, for a one-time use
