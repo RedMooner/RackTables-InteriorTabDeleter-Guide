@@ -1,37 +1,61 @@
-## Welcome to GitHub Pages
+## Welcome
 
-You can use the [editor on GitHub](https://github.com/RedMooner/RackTables-InteriorTabDeleter/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## deleting a tab "Interior" from rack
+If you want to delete a tab, you can use this script
+## Usage
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Copy this code:
+	
 
-### Markdown
+   
+```javascript
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+    try {
+        var container = $('.rack').children('tbody');
+        var first_value = $(container).children('tr:nth(0)');
+        $(first_value).children('th:nth(2)').remove();
+        var last_value = $(container).children('tr:last');
+        $(last_value).children('th:nth(2)').remove();
+        var current = container[0].childNodes;
+        $(container).children().each(function () {
+            $(this).children('td:nth(1)').remove();
+        });
+    }
+    catch (err) {
+        console.log(err);
+    }
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### Jekyll Themes
+Now you can paste it into your console, for a one-time use
+![enter image description here](console.png)
+![enter image description here](rack.png)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RedMooner/RackTables-InteriorTabDeleter/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+#### if you want to constantly and automatically use this script, then you will inevitably do the following:
+1. > **connect** via ssh to your server, or if it is local then just go to the folder with the site.
+2. > or you do not have a** local server**, then find the directory where racktables was installed
+3.  > in the js folder of the wwwroot directory, find the racktables.js script
+4.  > Paste the code below at the end of the file and save it
+5.  > **Ready**
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### code to paste:
+```javascript
+window.onload = function () {
+    try {
+        var container = $('.rack').children('tbody');
+        var first_value = $(container).children('tr:nth(0)');
+        $(first_value).children('th:nth(2)').remove();
+        var last_value = $(container).children('tr:last');
+        $(last_value).children('th:nth(2)').remove();
+        var current = container[0].childNodes;
+        $(container).children().each(function () {
+            $(this).children('td:nth(1)').remove();
+        });
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+```
+
